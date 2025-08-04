@@ -24,10 +24,30 @@ public class TestPrimeFaces14View implements Serializable {
         return valueStr;
     }
 
+    public String getValueStrDisabled() {
+        return "1";
+    }
+
+    public String getValueStrReadOnly() {
+        return "2";
+    }
+
     public void setValueStr(String valueStr) {
         this.valueStr = valueStr;
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Value changed",
                         "Value changed to: " + (valueStr == null ? "null" : valueStr)));
+    }
+
+    public void setValueStrDisabled(String valueStr) {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Disabled Value changed",
+                        "Value changed to: " + (valueStr == null ? "null" : valueStr)));
+    }
+
+    public void setValueStrReadOnly(String valueStr) {
+    FacesContext.getCurrentInstance().addMessage(null,
+            new FacesMessage(FacesMessage.SEVERITY_ERROR, "ReadOnly Value changed",
+                    "Value changed to: " + (valueStr == null ? "null" : valueStr)));
     }
 }

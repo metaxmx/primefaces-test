@@ -24,10 +24,30 @@ public class TestView implements Serializable {
         return value;
     }
 
+    public Boolean getValueDisabled() {
+        return true;
+    }
+
+    public Boolean getValueReadOnly() {
+        return false;
+    }
+
     public void setValue(Boolean value) {
         this.value = value;
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Value changed",
+                        "Value changed to: " + (value == null ? "null" : value.toString())));
+    }
+
+    public void setValueDisabled(Boolean value) {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Disabled Value changed",
+                        "Value changed to: " + (value == null ? "null" : value.toString())));
+    }
+
+    public void setValueReadOnly(Boolean value) {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "ReadOnly Value changed",
                         "Value changed to: " + (value == null ? "null" : value.toString())));
     }
 }

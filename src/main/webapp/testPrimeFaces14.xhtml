@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
 
-        <h1>Reproducer: TriStateChekbox readonly with constant value (Comparison with PrimeFaces 14)</h1>
+        <h1>Reproducer: TriStateCheckbox ReadOnly/Disabled shouldn't call value change handlers when processing updates</h1>
         <h:form id="frmTest">
             <p:growl globalOnly="true" showDetail="true"/>
 
@@ -23,8 +23,20 @@
 
             <p>
                 Changing the value of this input will rerender the form <br/>
-                (including the read-only tri-state checkboxes with constant value)
+                (including the read-only or disabled tri-state checkboxes)
             </p>
+
+            <hr/>
+
+            <p:triStateCheckbox id="triStateExampleDisabled" value="#{testPf14.valueStrDisabled}"
+                                style="margin-right: 1em;" disabled="true" />
+            <h:outputLabel for="triStateExampleDisabled" value="Standard Value (Disabled)"/>
+
+            <br/>
+
+            <p:triStateCheckbox id="triStateExampleReadOnly" value="#{testPf14.valueStrReadOnly}"
+                                style="margin-right: 1em;" readonly="true"/>
+            <h:outputLabel for="triStateExampleReadOnly" value="Standard Value (Read-Only)"/>
 
             <hr/>
 
