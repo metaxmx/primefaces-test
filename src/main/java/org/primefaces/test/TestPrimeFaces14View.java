@@ -10,24 +10,24 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-@Named
+@Named("testPf14")
 @ViewScoped
-public class TestView implements Serializable {
+public class TestPrimeFaces14View implements Serializable {
 
-    private Boolean value;
+    private String valueStr = "0";
 
     @PostConstruct
     public void init() {
     }
 
-    public Boolean getValue() {
-        return value;
+    public String getValueStr() {
+        return valueStr;
     }
 
-    public void setValue(Boolean value) {
-        this.value = value;
+    public void setValueStr(String valueStr) {
+        this.valueStr = valueStr;
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Value changed",
-                        "Value changed to: " + (value == null ? "null" : value.toString())));
+                        "Value changed to: " + (valueStr == null ? "null" : valueStr)));
     }
 }

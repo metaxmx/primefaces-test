@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+    <h:head>
+        <title>PrimeFaces Test (Comparison for PrimeFaces 14, does not run in PF15!)</title>
+        <h:outputScript name="test.js" />
+        <h:outputStylesheet name="test.css" />
+    </h:head>
+    <h:body>
+
+        <h1>Reproducer: TriStateChekbox readonly with constant value (Comparison with PrimeFaces 14)</h1>
+        <h:form id="frmTest">
+            <p:growl globalOnly="true" showDetail="true"/>
+
+            <h3>Real Value binding</h3>
+
+            <p:triStateCheckbox id="triStateExample" value="#{testPf14.valueStr}" style="margin-right: 1em;">
+                <p:ajax event="change" process="@form" update="@form"/>
+            </p:triStateCheckbox>
+            <h:outputLabel for="triStateExample" value="Standard Value"/>
+
+            <p>
+                Changing the value of this input will rerender the form <br/>
+                (including the read-only tri-state checkboxes with constant value)
+            </p>
+
+            <hr/>
+
+            <h3>Constant values</h3>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantNull" value="0" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant null"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantTrue" value="1" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant true"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantFalse" value="2" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant false"/>
+            </p:outputPanel>
+
+            <h3>Constant values 2</h3>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantNull2" value="#{'0'}" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant null"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantTrue2" value="#{'1'}" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant true"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block">
+                <p:triStateCheckbox id="triStateConstantFalse2" value="#{'2'}" readonly="true" style="margin-right: 1em;" />
+                <h:outputLabel value="Constant false"/>
+            </p:outputPanel>
+
+
+        </h:form>
+
+    </h:body>
+</html>

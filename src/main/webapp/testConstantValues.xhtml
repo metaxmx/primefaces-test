@@ -29,17 +29,17 @@
 
             <hr/>
 
-            <h3>Constant values (ReadOnly)</h3>
+            <h3>Constant values (Disabled)</h3>
             <p:outputPanel layout="block">
-                <p:triStateCheckbox id="triStateConstantNull" value="#{null}" readonly="true" style="margin-right: 1em;" />
+                <p:triStateCheckbox id="triStateConstantNull" disabled="true" style="margin-right: 1em;" />
                 <h:outputLabel value="Constant null"/>
             </p:outputPanel>
             <p:outputPanel layout="block">
-                <p:triStateCheckbox id="triStateConstantTrue" value="#{true}" readonly="true" style="margin-right: 1em;" />
+                <p:triStateCheckbox id="triStateConstantTrue" value="true" disabled="true" style="margin-right: 1em;" />
                 <h:outputLabel value="Constant true"/>
             </p:outputPanel>
             <p:outputPanel layout="block">
-                <p:triStateCheckbox id="triStateConstantFalse" value="#{false}" readonly="true" style="margin-right: 1em;" />
+                <p:triStateCheckbox id="triStateConstantFalse" value="false" disabled="true" style="margin-right: 1em;" />
                 <h:outputLabel value="Constant false"/>
             </p:outputPanel>
 
