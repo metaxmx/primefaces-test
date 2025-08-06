@@ -12,10 +12,25 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
+    <h1>#{testView.string}</h1>
+    <h:form id="frmTest">
+        <!-- outer default command -->
+        <p:commandButton id="defaultButtonOuter" value="Default Outer"
+                         onclick="alert('outer command clicked'); return false;"/>
+        <p:defaultCommand target="defaultButtonOuter"/>
 
-        </h:form>
+        <!-- nested panel -->
+        <p:outputPanel id="innerPanel" layout="block" style="margin-top: 1rem;">
 
-    </h:body>
+            <p:inputText id="inputTest" value="Test ..."/>
+
+            <!-- inner default command -->
+            <p:commandButton id="defaultButtonInner" value="Default Inner"
+                             onclick="alert('inner command clicked'); return false;"/>
+            <p:defaultCommand target="defaultButtonInner" scope="innerPanel"/>
+
+        </p:outputPanel>
+    </h:form>
+
+</h:body>
 </html>
