@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+    <h:head>
+        <title>PrimeFaces Test</title>
+        <h:outputScript name="test.js" />
+        <h:outputStylesheet name="test.css" />
+    </h:head>
+    <h:body>
+
+        <h1>Reproducer: TriStateChekbox readonly with constant value, inside &lt;ui:repeat/&gt;</h1>
+        <h:form id="frmTest">
+
+            <h3>Inside UI-Repeat</h3>
+
+            <ui:repeat id="repeat" value="#{[1,2,3]}" var="i">
+
+                <h4>Loop #{i}</h4>
+
+                <br />
+
+                <h:panelGrid columns="2">
+                    <p:triStateCheckbox readonly="true"
+                                        stateOneTitle="Null"
+                                        stateTwoTitle="True"
+                                        stateThreeTitle="False" />
+                    <h:outputText value="Null" />
+                    <p:triStateCheckbox value="#{true}" readonly="true"
+                                        stateOneTitle="Null"
+                                        stateTwoTitle="True"
+                                        stateThreeTitle="False" />
+                    <h:outputText value="True as Boolean" />
+                    <p:triStateCheckbox value="#{false}" readonly="true"
+                                        stateOneTitle="Null"
+                                        stateTwoTitle="True"
+                                        stateThreeTitle="False" />
+                    <h:outputText value="False  as Boolean" />
+
+
+                    <p:triStateCheckbox value="true" readonly="true"
+                                        stateOneTitle="Null"
+                                        stateTwoTitle="True"
+                                        stateThreeTitle="False" />
+                    <h:outputText value="True as String" />
+                    <p:triStateCheckbox value="false" readonly="true"
+                                        stateOneTitle="Null"
+                                        stateTwoTitle="True"
+                                        stateThreeTitle="False" />
+                    <h:outputText value="False as String" />
+                </h:panelGrid>
+
+                <hr/>
+
+            </ui:repeat>
+
+            <h3>Witout UI-Repeat</h3>
+
+            <h:panelGrid columns="2">
+                <p:triStateCheckbox readonly="true"
+                                    stateOneTitle="Null"
+                                    stateTwoTitle="True"
+                                    stateThreeTitle="False" />
+                <h:outputText value="Null" />
+                <p:triStateCheckbox value="#{true}" readonly="true"
+                                    stateOneTitle="Null"
+                                    stateTwoTitle="True"
+                                    stateThreeTitle="False" />
+                <h:outputText value="True as Boolean" />
+                <p:triStateCheckbox value="#{false}" readonly="true"
+                                    stateOneTitle="Null"
+                                    stateTwoTitle="True"
+                                    stateThreeTitle="False" />
+                <h:outputText value="False  as Boolean" />
+
+
+                <p:triStateCheckbox value="true" readonly="true"
+                                    stateOneTitle="Null"
+                                    stateTwoTitle="True"
+                                    stateThreeTitle="False" />
+                <h:outputText value="True as String" />
+                <p:triStateCheckbox value="false" readonly="true"
+                                    stateOneTitle="Null"
+                                    stateTwoTitle="True"
+                                    stateThreeTitle="False" />
+                <h:outputText value="False as String" />
+            </h:panelGrid>
+
+        </h:form>
+
+    </h:body>
+</html>
